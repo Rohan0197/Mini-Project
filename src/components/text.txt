@@ -1,0 +1,7 @@
+<nav>
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/sign' element={<SignIn />} />
+          <Route path='/home' element={Homepage} />
+        </Routes>
+      </nav>
