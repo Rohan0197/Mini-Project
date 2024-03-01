@@ -1,0 +1,14 @@
+.footer {
+    display: flex;
+    height: 150px;
+    border-style: solid;
+    border-color: black;
+}
+
+.items {
+    margin-top: 15px;
+}
+
+#search {
+    height: 40px;
+}
