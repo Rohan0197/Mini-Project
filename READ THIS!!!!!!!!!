@@ -1,4 +1,0 @@
-I made changes in the signin component to get user data
-  -had to make a form, all the input fields are coming in a single line make changes accordingly
-  -change the style of the button also, idk its green by default
-I linked the signin button to insert data in table and route to login page
