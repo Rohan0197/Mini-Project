@@ -1,42 +1,52 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors',1);
-header("Access-Control-Allow-Origin:* ");
+ini_set('display_errors', 1);
+
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
+header('Content-Type: application/json');
 
-$db_conn= mysqli_connect("localhost","root", "", "reactphp");
-if($db_conn===false)
-{
-  die("ERROR: Could Not Connect".mysqli_connect_error());
+$db_conn = mysqli_connect("localhost", "root", "", "reactphp");
+
+if ($db_conn === false) {
+    die(json_encode(["error" => "ERROR: Could Not Connect " . mysqli_connect_error()]));
 }
 
 $method = $_SERVER['REQUEST_METHOD'];
-//  echo "test----".$method; die;
-switch($method)
-{
+
+switch ($method) {
     case "POST":
-        $userpostdata= json_decode(file_get_contents("php://input"));
-        //echo "sucess data";
-        //print_r($userpostdata); die;
-        $username= $userpostdata->username;
-        $useremail= $userpostdata->email;
-        $userphone= $userpostdata->phone;
-        $userpassword= $userpostdata->password;
-        $result= mysqli_query($db_conn, "INSERT INTO user_info (username, email_id, phone_num, password) 
-        VALUES('$username', '$useremail', '$userphone', '$userpassword')");
-    
-        if($result)
-        {
-          echo json_encode(["success"=>"User Added Successfully"]);
-          return;
+        $userpostdata = json_decode(file_get_contents("php://input"));
+
+        if (isset($userpostdata->req) && $userpostdata->req === true) {
+            // If login request
+            $username = $userpostdata->username;
+            $password = $userpostdata->password;
+            $result = mysqli_query($db_conn, "SELECT * FROM user_info WHERE username='$username' AND password='$password'");
+            if (mysqli_num_rows($result) > 0) {
+                echo json_encode(true);
+            } else {
+                echo json_encode(false);
+            }
         } else {
-            echo json_encode(["success"=>"Please Check the User Data!"]);
-            return; 
+            $username = $userpostdata->username;
+            $useremail = $userpostdata->email;
+            $userphone = $userpostdata->phone;
+            $userpassword = $userpostdata->password;
+
+            $result = mysqli_query($db_conn, "INSERT INTO user_info (username, email_id, phone_num, password) 
+            VALUES ('$username', '$useremail', '$userphone', '$userpassword')");
+
+            if ($result) {
+                echo json_encode(["success" => "User Added Successfully"]);
+            } else {
+                echo json_encode(["error" => "Failed to add user. Please check the user data."]);
+            }
         }
         break;
-    }
-
-
-
+    default:
+        echo json_encode(["error" => "Unsupported request method"]);
+        break;
+}
 ?>
