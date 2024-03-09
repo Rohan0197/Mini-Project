@@ -14,7 +14,7 @@ function SignIn() {
     const handleSubmit =async(e)=>{
         e.preventDefault();
         //console.log(formvalue);
-        const formData= {username:formvalue.username, email:formvalue.email, phone:formvalue.phone, password:formvalue.password}; 
+        const formData= {username:formvalue.username, email:formvalue.email, phone:formvalue.phone, password:formvalue.password,req: false}; 
         const res= await axios.post("http://localhost/api/user.php",formData);
         //let jsonres= res.data.json();        
           if(res.data.success)
