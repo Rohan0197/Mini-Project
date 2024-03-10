@@ -7,7 +7,7 @@ header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
 header('Content-Type: application/json');
 
-$db_conn = mysqli_connect("localhost", "root", "", "reactphp");
+$db_conn = mysqli_connect("localhost", "root", "", "mini_project");
 
 if ($db_conn === false) {
     die(json_encode(["error" => "ERROR: Could Not Connect " . mysqli_connect_error()]));
@@ -39,7 +39,7 @@ switch ($method) {
             VALUES ('$username', '$useremail', '$userphone', '$userpassword')");
 
             if ($result) {
-                echo json_encode(["success" => "User Added Successfully"]);
+                echo json_encode(["success" => "User Created"]);
             } else {
                 echo json_encode(["error" => "Failed to add user. Please check the user data."]);
             }
