@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function Login() {
     const navigate = useNavigate();
-    const [formvalue, setFormvalue] = useState({ username: '', password: '' });
+
+
+    const [formvalue, setFormvalue] = useState({username: '', password: ''});
     const [message, setMessage] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [formValid, setFormValid] = useState(false); // State for form validity
 
     const handleInput = (e) => {
-        const { name, value } = e.target;
-        setFormvalue({ ...formvalue, [name]: value });
+        const {name, value} = e.target;
+        setFormvalue({...formvalue, [name]: value});
         setFormValid(formvalue.username.trim() !== '' && formvalue.password.trim() !== '');
     }
 
@@ -33,20 +35,17 @@ function Login() {
                 }
             });
             const responseData = res.data;
-            if (responseData === true)
-            {
+            if (responseData === true) {
                 setMessage("Login successful");
                 console.log("Success message received: Login successful");
                 setTimeout(() => {
                     console.log("Redirecting now...");
                     navigate('/home');
                 }, 2000);
-            } 
-            else 
-            {
+            } else {
                 setMessage("Invalid credentials");
                 console.log("Error message received: Invalid credentials");
-                setFormvalue({ username: '', password: '' });
+                setFormvalue({username: '', password: ''});
                 setSubmitted(false);
             }
         } catch (error) {
@@ -62,20 +61,24 @@ function Login() {
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label className="labels">Username: </label>
-                            <input type="text" autoFocus className="inp" name="username" value={formvalue.username} onChange={handleInput} />
+                            <input type="text" autoFocus className="inp" name="username" value={formvalue.username}
+                                   onChange={handleInput}/>
                         </div>
                         <div>
                             <label className="labels">Password: </label>
-                            <input type="password" id="pass" className="inp" name="password" value={formvalue.password} onChange={handleInput} />
+                            <input type="password" id="pass" className="inp" name="password" value={formvalue.password}
+                                   onChange={handleInput}/>
                         </div>
                         <div>
-                            <button type="submit" disabled={submitted || !formValid} >Login</button>
+                            <button type="submit" disabled={submitted || !formValid} id="login-btn"
+                                    onClick={() => navigate('home')}>Login
+                            </button>
                         </div>
                     </form>
                     <div>{message}</div>
-                    <div>Not Signed in?</div>
+                    <div id="text">Not Signed in?</div>
                     <div>
-                        <button onClick={() => navigate('sign')}>Sign In</button>
+                        <button onClick={() => navigate('sign')} className="btn-sign">Sign In</button>
                     </div>
                 </div>
             </div>

@@ -1,14 +1,52 @@
 .footer {
     display: flex;
-    height: 150px;
-    border-style: solid;
-    border-color: black;
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
 }
 
 .items {
-    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 #search {
     height: 40px;
+    width: 500px;
+    border: 3px solid black;
+    border-radius: 15px;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#logout, #cart {
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    margin-top: 0;
+    border: 3px solid black;
+    border-radius: 15px;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+hr {
+    border: 3px solid black;
+}
+
+.corner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 20px;
+}
+
+.corner_items {
+    display: flex;
+    flex-direction: row;
 }
