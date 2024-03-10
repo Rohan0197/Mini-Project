@@ -1,7 +1,9 @@
 import {useState} from "react";
 import Item from "./Item";
+import {useNavigate} from "react-router-dom";
 
 function Homepage() {
+    const navigate = useNavigate();
 
     const [search, setSearch] = useState('');
 
@@ -19,7 +21,7 @@ function Homepage() {
                 </div>
                 <div className="corner">
                     <div className="corner_items">
-                        <button id='logout'>LogOut</button>
+                        <button onClick={() => navigate('/login')} id='logout'>LogOut</button>
                     </div>
                     <div className="corner_items">
                         <button id="cart">My Cart</button>

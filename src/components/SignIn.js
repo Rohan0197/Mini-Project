@@ -65,6 +65,7 @@ function SignIn() {
                                                                                 onChange={handleInput}></input>
 
                         </div>
+                        <div>{message}</div>
                         <div>
                             <button name="submit" className="btn btn-success">Sign In</button>
                         </div>

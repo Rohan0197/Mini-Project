@@ -46,7 +46,8 @@ function Login() {
                 setMessage("Invalid credentials");
                 console.log("Error message received: Invalid credentials");
                 setFormvalue({username: '', password: ''});
-                setSubmitted(false);
+                setSubmitted(false); // Reset submitted state
+                setFormValid(false);
             }
         } catch (error) {
             console.error("Error:", error);
@@ -70,15 +71,14 @@ function Login() {
                                    onChange={handleInput}/>
                         </div>
                         <div>
-                            <button type="submit" disabled={submitted || !formValid} id="login-btn"
-                                    onClick={() => navigate('home')}>Login
+                            <button type="submit" disabled={submitted || !formValid} id="login-btn">Login
                             </button>
                         </div>
                     </form>
                     <div>{message}</div>
-                    <div id="text">Not Signed in?</div>
+                    <div id="text">New User?</div>
                     <div>
-                        <button onClick={() => navigate('sign')} className="btn-sign">Sign In</button>
+                        <button onClick={() => navigate('/sign')} className="btn-sign">Sign In</button>
                     </div>
                 </div>
             </div>
