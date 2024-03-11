@@ -6,7 +6,6 @@ function SignIn() {
 
     const navigate = useNavigate();
     const [formvalue, setFormvalue] = useState({username: '', email: '', phone: '', password: ''});
-    const [message, setMessage] = useState('');
     const handleInput = (e) => {
         setFormvalue({...formvalue, [e.target.name]: e.target.value});
     }
@@ -23,18 +22,17 @@ function SignIn() {
         const res = await axios.post("http://localhost/api/user.php", formData);
         //let jsonres= res.data.json();        
         if (res.data.success) {
-            setMessage(res.data.success);
+            alert("User created")
             setTimeout(() => {
                 navigate('/login');
-            }, 2000);
-
+            }, 1500);
         }
     }
     return (
         <div className="login">
             <div className="sign">
                 <div id="heading">
-                    Sign In
+                    Sign Up
                 </div>
                 <div className="inner">
                     <form onSubmit={handleSubmit}>
@@ -65,9 +63,8 @@ function SignIn() {
                                                                                 onChange={handleInput}></input>
 
                         </div>
-                        <div>{message}</div>
                         <div>
-                            <button name="submit" className="btn btn-success">Sign In</button>
+                            <button name="submit" className="btn btn-success">Sign Up</button>
                         </div>
 
 

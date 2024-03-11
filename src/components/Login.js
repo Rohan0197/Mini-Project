@@ -7,7 +7,6 @@ function Login() {
 
 
     const [formvalue, setFormvalue] = useState({username: '', password: ''});
-    const [message, setMessage] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [formValid, setFormValid] = useState(false); // State for form validity
 
@@ -36,14 +35,14 @@ function Login() {
             });
             const responseData = res.data;
             if (responseData === true) {
-                setMessage("Login successful");
+                alert("Login successful")
                 console.log("Success message received: Login successful");
                 setTimeout(() => {
                     console.log("Redirecting now...");
                     navigate('/home');
-                }, 2000);
+                }, 1500);
             } else {
-                setMessage("Invalid credentials");
+                alert("Invalid credentials")    
                 console.log("Error message received: Invalid credentials");
                 setFormvalue({username: '', password: ''});
                 setSubmitted(false); // Reset submitted state
@@ -75,10 +74,9 @@ function Login() {
                             </button>
                         </div>
                     </form>
-                    <div>{message}</div>
                     <div id="text">New User?</div>
                     <div>
-                        <button onClick={() => navigate('/sign')} className="btn-sign">Sign In</button>
+                        <button onClick={() => navigate('/sign')} className="btn-sign">Sign Up</button>
                     </div>
                 </div>
             </div>
