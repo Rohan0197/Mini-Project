@@ -1,10 +1,11 @@
 import './App.css';
-import {Route, Routes} from 'react-router-dom';
 import './hompage.css';
 import './item.css';
-import Homepage from './components/Homepage';
-import Login from './components/Login';
-import SignIn from './components/SignIn';
+import './Cart.css';
+import {Route, Routes} from "react-router-dom";
+import Homepage from "./components/Homepage";
+import Login from "./components/Login";
+import SignIn from "./components/SignIn";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Route path='/home' element={<Homepage/>}/>
                 </Routes>
             </nav>
+
         </>
     );
 }

@@ -1,19 +1,20 @@
 import {useState} from "react";
+import Add from "./Add";
+import CartItems from "./CartItems";
 
 function Item(props) {
 
     const [add, setAdd] = useState(false)
-    const [count, setCount] = useState(0)
 
     function added() {
         setAdd(true);
-        setCount(count + 1)
+        <CartItems image='apple.jpg' name={props.name} cost={props.cost} quantity={props.quantity}/>
     }
 
     return (
         <div className="item_box">
             <div className="elements">
-                <img alt="item"/>
+                <img src='apple.jpg' alt="item" id="apple"/>
             </div>
             <div className="elements">
                 Name:{props.name}
@@ -21,13 +22,9 @@ function Item(props) {
             <div className="elements">
                 Cost: {props.cost}
             </div>
-            <div className="elements" id="add">
+            <div className="elements">
                 <button onClick={added} id="add">
-
-                    {
-                        add ? `${count}+` : "Add"
-                    }
-
+                    {add ? <Add props={props.cost}/> : 'Add'}
                 </button>
             </div>
         </div>

@@ -12,6 +12,7 @@
     display: grid;
     grid-template-columns:repeat(3, 1fr);
     margin-left: 320px;
+    gap: 20px;
 }
 
 /*.sub_items {
@@ -30,18 +31,19 @@
 
 
 .item_box {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     margin-top: 40px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     border: 1px solid black;
     border-radius: 14px;
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
 }
 
-img {
+#apple {
     height: 200px;
-    width: 200px;
+    width: 250px;
 }
 
 .elements {
@@ -52,9 +54,23 @@ img {
 }
 
 #add {
-    padding: 10px 20px 10px 20px;
+    width: 100px;
+    height: 50px;
     border-radius: 10px;
     font-size: 15px;
-    min-width: 20px;
     text-align: center;
+}
+
+.increment-decrement {
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    width: 25px;
+    height: 25px;
+}
+
+#quantity {
+    font-weight: bold;
+    font-size: 15px;
 }

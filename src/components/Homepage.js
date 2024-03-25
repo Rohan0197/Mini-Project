@@ -4,9 +4,8 @@ import {useNavigate} from "react-router-dom";
 
 function Homepage() {
     const navigate = useNavigate();
-
     const [search, setSearch] = useState('');
-
+    
     function changeSearch(e) {
         setSearch(e.target.value);
     }
@@ -15,7 +14,7 @@ function Homepage() {
     return (
         <div>
             <div className="footer">
-
+                <img src='web_icon.png' alt='icon' id="web_icon"/>
                 <div className="items">
                     <input type="text" placeholder="Search" onChange={changeSearch} id="search"></input>
                 </div>
@@ -24,7 +23,7 @@ function Homepage() {
                         <button onClick={() => navigate('/login')} id='logout'>LogOut</button>
                     </div>
                     <div className="corner_items">
-                        <button id="cart">My Cart</button>
+                        <button onClick={() => navigate('/cart')} id="cart">My Cart</button>
                     </div>
                 </div>
 

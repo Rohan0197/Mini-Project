@@ -66,8 +66,6 @@ function SignIn() {
                         <div>
                             <button name="submit" className="btn btn-success">Sign Up</button>
                         </div>
-
-
                     </form>
                 </div>
             </div>
