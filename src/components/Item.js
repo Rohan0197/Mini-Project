@@ -1,14 +1,19 @@
 import {useState} from "react";
 import Add from "./Add";
-import CartItems from "./CartItems";
 
 function Item(props) {
 
-    const [add, setAdd] = useState(false);
+    const [add, setAdd] = useState(false)
 
-    function added() {
+
+    function handleAddToCart() {
+        props.addToCart({
+            image: props.image,
+            name: props.name,
+            cost: props.cost,
+            quantity: 1
+        });
         setAdd(true);
-        <CartItems image='apple.jpg' name={props.name} cost={props.cost} quantity={props.quantity}/>
     }
 
     return (
@@ -23,8 +28,8 @@ function Item(props) {
                 Cost: {props.cost}
             </div>
             <div className="elements">
-                <button onClick={added} id="add">
-                    {add ? <Add props={props.cost} stock={props.stock}/> : 'Add'}
+                <button onClick={handleAddToCart} id="add">
+                    {add ? <Add stock={props.stock}/> : 'Add'}
                 </button>
             </div>
         </div>

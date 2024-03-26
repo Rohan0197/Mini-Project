@@ -3,7 +3,7 @@
     height: 120px;
     align-items: center;
     justify-content: space-evenly;
-    gap: 100px;
+    gap: 50px;
 }
 
 .items {
@@ -31,6 +31,12 @@
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
 
+}
+
+#username {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 hr {

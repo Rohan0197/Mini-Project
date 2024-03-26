@@ -43,7 +43,7 @@ function Login() {
                     navigate('/home');
                 }, 1500);
             } else {
-                alert("Invalid credentials")    
+                alert("Invalid credentials")
                 console.log("Error message received: Invalid credentials");
                 setFormvalue({username: '', password: ''});
                 setSubmitted(false); // Reset submitted state
@@ -62,7 +62,8 @@ function Login() {
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label className="labels">Username: </label>
-                            <input type="text" autoFocus className="inp" name="username" value={formvalue.username}
+                            <input type="text" autoFocus className="inp" name="username" id="user_name"
+                                   value={formvalue.username}
                                    onChange={handleInput}/>
                         </div>
                         <div>
@@ -73,7 +74,7 @@ function Login() {
                         <div>
                             <button type="submit" disabled={submitted || !formValid} id="login-btn">Login
                             </button>
-                            
+
                         </div>
                     </form>
                     <div id="text">New User?</div>

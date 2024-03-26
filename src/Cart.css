@@ -1,6 +1,70 @@
-.cart_items {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.cart-header {
+    height: 100px;
+    background-color: #61dafb;
+    font-weight: bold;
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.attributes {
+    margin-left: 40px;
+    margin-right: 20px;
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 1fr 1fr 1fr;
+    gap: 75px;
     align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+
+}
+
+.cart_items {
+    margin-left: 40px;
+    margin-right: 20px;
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 1fr 1fr 1fr;
+    gap: 75px;
+    align-items: center;
+}
+
+.cart_item_image {
+    width: 100px;
+    height: 100px;
+
+}
+
+.individual {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.all-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-btn-img {
+    height: 20px;
+    width: 20px;
+}
+
+.delete-btn {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border-style: groove;
+}
+
+.delete-btn:hover {
+    background-color: red;
+}
+
+.delete-btn-img:hover {
+    opacity: 0.8;
+    cursor: pointer;
+
 }
