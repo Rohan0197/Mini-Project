@@ -31,7 +31,7 @@ switch ($method) {
             }
         } else {
             $username = $userpostdata->username;
-            $useremail = $userpostdata->email;
+            $useremail = $userpostdata->email;  
             $userphone = $userpostdata->phone;
             $userpassword = $userpostdata->password;
 

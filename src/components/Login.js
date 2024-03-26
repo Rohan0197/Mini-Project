@@ -35,6 +35,7 @@ function Login() {
             });
             const responseData = res.data;
             if (responseData === true) {
+                localStorage.setItem('username', formvalue.username);
                 alert("Login successful")
                 console.log("Success message received: Login successful");
                 setTimeout(() => {

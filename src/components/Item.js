@@ -4,7 +4,7 @@ import CartItems from "./CartItems";
 
 function Item(props) {
 
-    const [add, setAdd] = useState(false)
+    const [add, setAdd] = useState(false);
 
     function added() {
         setAdd(true);
@@ -14,7 +14,7 @@ function Item(props) {
     return (
         <div className="item_box">
             <div className="elements">
-                <img src='apple.jpg' alt="item" id="apple"/>
+                <img src={props.image} alt="item" id="apple"/>
             </div>
             <div className="elements">
                 Name:{props.name}
@@ -24,7 +24,7 @@ function Item(props) {
             </div>
             <div className="elements">
                 <button onClick={added} id="add">
-                    {add ? <Add props={props.cost}/> : 'Add'}
+                    {add ? <Add props={props.cost} stock={props.stock}/> : 'Add'}
                 </button>
             </div>
         </div>

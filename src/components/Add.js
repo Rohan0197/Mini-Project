@@ -5,7 +5,9 @@ function Add(props) {
     const [quantity, setQuantity] = useState(1);
     
     function increment() {
+        if (quantity < props.stock) {
         setQuantity(quantity + 1);
+        }
     }
 
     function decrement() {
