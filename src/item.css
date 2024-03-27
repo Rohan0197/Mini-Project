@@ -56,7 +56,7 @@
     display: flex;
     justify-content: center;
     text-align: center;
-
+    gap: 20px;
 }
 
 #add {
@@ -74,9 +74,25 @@
     border: none;
     width: 25px;
     height: 25px;
+
 }
 
 #quantity {
     font-weight: bold;
     font-size: 15px;
+}
+
+.quantity-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-inc-dec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+
 }

@@ -52,7 +52,8 @@ function Homepage(props) {
                 {items.map(item => (
                     <div key={item.id} className="sub_items">
                         <Item name={item.name} cost={item.cost} stock={item.stock} image={item.img}
-                              addToCart={props.addToCart}/>
+                              addToCart={props.addToCart} cartItems={props.cartItems}
+                              setCartItems={props.setCartItems}/>
                     </div>
                 ))}
             </div>
