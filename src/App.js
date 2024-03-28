@@ -25,7 +25,7 @@ function App() {
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/home' element={<Homepage addToCart={addToCart} cartItems={cartItems}
                                                            setCartItems={setCartItems}/>}/>
-                    <Route path='/cart' element={<MyCart cartItems={cartItems}/>}/>
+                    <Route path='/cart' element={<MyCart cartItems={cartItems} setCartItems={setCartItems}/>}/>
                 </Routes>
             </nav>
 

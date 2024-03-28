@@ -1,5 +1,10 @@
 function MyCart(props) {
-    
+
+    function deletion(current_item) {
+        const updatedCartItems = props.cartItems.filter(item => item.name !== current_item);
+        props.setCartItems(updatedCartItems);
+    }
+
     return (
         <div>
             <div className="cart-header">Your Cart</div>
@@ -21,7 +26,9 @@ function MyCart(props) {
                     <label className="individual">
                         {item.quantity}
                     </label>
-                    <button className='delete-btn'><img src='delete.png' className="delete-btn-img"/></button>
+                    <button className='delete-btn' onClick={() => deletion(item.name)}><img src='delete.png'
+                                                                                            className="delete-btn-img"/>
+                    </button>
                 </div>
             ))}
 
