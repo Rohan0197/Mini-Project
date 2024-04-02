@@ -27,27 +27,41 @@ function Item(props) {
     }
 
     function handleAddToCart() {
+        if (quantity > props.stock) {
+            alert("Not enough stock");
+            return;
+        }
+    
         const new_item = {
             image: props.image,
             name: props.name,
             cost: props.cost * quantity,
-            quantity: quantity
+            quantity: quantity,
+            stock: props.stock
         };
+    
         const index = props.cartItems.findIndex(item => item.name === new_item.name);
         if (index !== -1) {
+            const totalQuantity = props.cartItems[index].quantity + quantity;
+            if (totalQuantity > props.stock) {
+                alert("Not enough stock");
+                return;
+            }
+            
             const updatedCartItems = [...props.cartItems];
-            updatedCartItems[index].quantity += quantity;
-            updatedCartItems[index].cost = props.cost * updatedCartItems[index].quantity;
+            updatedCartItems[index].quantity = totalQuantity;
+            updatedCartItems[index].cost = props.cost * totalQuantity;
             props.setCartItems(updatedCartItems);
-        } else
+        } else {
             props.addToCart(new_item);
+        }
         setAdd(true);
     }
 
     return (
         <div className="item_box">
             <div className="elements">
-                <img src={props.image} alt="item" id="apple"/>
+                <img src={props.image} alt="item" id="item_img"/>
             </div>
             <div className="elements">
                 Name:{props.name}
