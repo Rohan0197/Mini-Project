@@ -45,9 +45,9 @@ function Homepage(props) {
                     </div>
                 </div>
             </div>
-            <div>
-                <hr/>
-            </div>
+
+            <hr/>
+
             <div className="content">
                 {items.map(item => (
                     <div key={item.id} className="sub_items">

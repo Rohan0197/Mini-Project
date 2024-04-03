@@ -1,7 +1,17 @@
 import React from 'react';
 
 function MyCart(props) {
-    const { cartItems, setCartItems } = props;
+    const {cartItems, setCartItems} = props;
+
+    let total_cost = find_total_cost();
+
+    function find_total_cost() {
+        let total_cost = 0;
+        cartItems.forEach((item) => {
+            total_cost += item.cost;
+        })
+        return total_cost;
+    }
 
     function deletion(current_item) {
         const updatedCartItems = cartItems.filter(item => item.name !== current_item);
@@ -48,16 +58,41 @@ function MyCart(props) {
                     <img src={item.image} alt="item" className="cart_item_image"/>
                     <label className="individual">{item.name}</label>
                     <label className="individual">{item.cost}</label>
-                    <label className="individual">
-                        <button onClick={() => decrementQuantity(index)}>-</button>
-                        {item.quantity}
-                        <button onClick={() => incrementQuantity(index)}>+</button>
+                    <label className="individual" id="quantity-vary">
+                        <button onClick={() => decrementQuantity(index)} className="cart-buttons"><img src='sub.png'
+                                                                                                       className="add-sub-img"
+                                                                                                       alt="delete"/>
+                        </button>
+                        <label>{item.quantity}</label>
+                        <button onClick={() => incrementQuantity(index)} className="cart-buttons"><img src='add.png'
+                                                                                                       className="add-sub-img"
+                                                                                                       alt="add"/>
+                        </button>
                     </label>
                     <button className='delete-btn' onClick={() => deletion(item.name)}>
                         <img src='delete.png' className="delete-btn-img" alt="delete"/>
                     </button>
                 </div>
             ))}
+            <>
+                {
+                    cartItems.length === 0 ? null : (<hr/>)
+                }
+            </>
+            <>
+                {
+                    cartItems.length === 0 ? (<label id="empty-cart">CART IS EMPTY !!</label>) : (
+                        <div className="final-cost">
+                            <div>
+                                <label className="total-cost">Total Cost({cartItems.length} items): {total_cost}</label>
+                            </div>
+                            <div>
+                                <button id="proceed">Proceed to Pay</button>
+                            </div>
+
+                        </div>)
+                }
+            </>
         </div>
     )
 }
