@@ -18,7 +18,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch ($method) {
     case "GET":
         // Fetch product data from database
-        $result = mysqli_query($db_conn, "SELECT product_name as name, Cost as cost, Stock as stock, img_url as img FROM products");
+        $result = mysqli_query($db_conn, "SELECT product_name as name, Cost as cost, Stock as stock, img_url as img, product_id as id FROM products");
 
         if ($result === false) {
             die(json_encode(["error" => "Error executing query: " . mysqli_error($db_conn)]));

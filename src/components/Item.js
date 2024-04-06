@@ -1,7 +1,6 @@
 import {useState} from "react";
 
 function Item(props) {
-
     const [add, setAdd] = useState(false)
     const [quantity, setQuantity] = useState(1);
     const [quantityClicked, setQuantityClicked] = useState(false);
@@ -31,15 +30,16 @@ function Item(props) {
             alert("Not enough stock");
             return;
         }
-
+    
         const new_item = {
             image: props.image,
             name: props.name,
             cost: props.cost * quantity,
             quantity: quantity,
-            stock: props.stock
+            stock: props.stock,
+            product_id: props.product_id
         };
-
+    
         const index = props.cartItems.findIndex(item => item.name === new_item.name);
         if (index !== -1) {
             const totalQuantity = props.cartItems[index].quantity + quantity;
@@ -47,7 +47,7 @@ function Item(props) {
                 alert("Not enough stock");
                 return;
             }
-
+    
             const updatedCartItems = [...props.cartItems];
             updatedCartItems[index].quantity = totalQuantity;
             updatedCartItems[index].cost = props.cost * totalQuantity;

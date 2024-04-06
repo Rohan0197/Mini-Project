@@ -10,13 +10,12 @@ function Homepage(props) {
     const [username, setUsername] = useState('');
     const [filter, setFilter] = useState(null);
     useEffect(() => {
-        // Retrieve username from local storage
         const storedUsername = localStorage.getItem('username');
         setUsername(storedUsername);
 
         axios.get('http://localhost/api/products.php')
             .then(response => {
-                console.log('Response data:', response.data); // Add this line to log data
+                console.log('Response data:', response.data); 
                 setItems(response.data);
             })
             .catch(error => {
@@ -49,6 +48,11 @@ function Homepage(props) {
         });
     }
 
+    function handleLogout() {
+        localStorage.removeItem('cartItems');
+        navigate('/login');
+    }
+
     return (
         <div className="main-container">
             <div className="footer">
@@ -59,7 +63,7 @@ function Homepage(props) {
                 </div>
                 <div className="corner">
                     <div className="corner_items">
-                        <button onClick={() => navigate('/login')} id='logout'>LogOut</button>
+                        <button onClick={handleLogout} id='logout'>LogOut</button>
                     </div>
                     <div className="corner_items">
                         <button onClick={() => navigate('/cart')} id="cart">My Cart</button>
@@ -102,9 +106,16 @@ function Homepage(props) {
                 <div className="content">
                     {filteredItems.map(item => (
                         <div key={item.id} className="sub_items">
-                            <Item name={item.name} cost={item.cost} stock={item.stock} image={item.img}
-                                  addToCart={props.addToCart} cartItems={props.cartItems}
-                                  setCartItems={props.setCartItems}/>
+                            <Item
+                                name={item.name}
+                                cost={item.cost}
+                                stock={item.stock}
+                                image={item.img}
+                                addToCart={props.addToCart}
+                                cartItems={props.cartItems}
+                                product_id={item.id} 
+                                setCartItems={props.setCartItems}
+                            />
                         </div>
                     ))}
                 </div>

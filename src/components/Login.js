@@ -18,14 +18,14 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setSubmitted(true); // Mark the form as submitted
+        setSubmitted(true); 
         if (!formValid) {
-            return; // If form is invalid, do not proceed with login
+            return; 
         }
         const formData = {
             username: formvalue.username,
             password: formvalue.password,
-            req: true // Specify that this is a login request
+            req: true 
         };
         try {
             const res = await axios.post("http://localhost/api/user.php", formData, {
@@ -46,7 +46,7 @@ function Login() {
                 alert("Invalid credentials")
                 console.log("Error message received: Invalid credentials");
                 setFormvalue({username: '', password: ''});
-                setSubmitted(false); // Reset submitted state
+                setSubmitted(false);
                 setFormValid(false);
             }
         } catch (error) {
