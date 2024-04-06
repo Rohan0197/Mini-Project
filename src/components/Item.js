@@ -31,7 +31,7 @@ function Item(props) {
             alert("Not enough stock");
             return;
         }
-    
+
         const new_item = {
             image: props.image,
             name: props.name,
@@ -39,7 +39,7 @@ function Item(props) {
             quantity: quantity,
             stock: props.stock
         };
-    
+
         const index = props.cartItems.findIndex(item => item.name === new_item.name);
         if (index !== -1) {
             const totalQuantity = props.cartItems[index].quantity + quantity;
@@ -47,7 +47,7 @@ function Item(props) {
                 alert("Not enough stock");
                 return;
             }
-            
+
             const updatedCartItems = [...props.cartItems];
             updatedCartItems[index].quantity = totalQuantity;
             updatedCartItems[index].cost = props.cost * totalQuantity;
@@ -64,7 +64,7 @@ function Item(props) {
                 <img src={props.image} alt="item" id="item_img"/>
             </div>
             <div className="elements">
-                Name:{props.name}
+                Name: {props.name}
             </div>
             <div className="elements">
                 Cost: {props.cost}

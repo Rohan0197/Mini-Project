@@ -63,10 +63,9 @@ function SignIn() {
                                                                                 onChange={handleInput}></input>
 
                         </div>
-                        <div>
+                        <div className="bottom-btn">
                             <button name="submit" className="btn btn-success">Sign Up</button>
                         </div>
-
 
                     </form>
                 </div>

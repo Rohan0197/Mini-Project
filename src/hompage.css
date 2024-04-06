@@ -1,11 +1,14 @@
+.main-container {
+    background-color: #EAE7DD;
+}
+
 .footer {
     display: flex;
     height: 120px;
     align-items: center;
     justify-content: space-evenly;
     gap: 50px;
-    background: url(../public/header2.jpg);
-    background-size: cover;
+    background-color: #EAE7DD;
 }
 
 .items {
@@ -21,6 +24,8 @@
     border-radius: 15px;
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
+    background-color: #F2F7F2;
+
 }
 
 #logout, #cart {
@@ -30,14 +35,30 @@
     border: 3px solid black;
     border-radius: 15px;
     font-size: 18px;
+    font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
+    background-color: #EAE7DD;
+    color: #99775C;
 
+}
+
+#logout:hover {
+    background-color: #99775C;
+    color: #F2F7F2;
+    transition: 0.2s;
+}
+
+#cart:hover {
+    background-color: #99775C;
+    color: #F2F7F2;
+    transition: 0.2s;
 }
 
 #username {
     font-family: 'Times New Roman', Times, serif;
     font-size: 28px;
     font-weight: bold;
+    color: black;
 }
 
 hr {
@@ -50,7 +71,6 @@ hr {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-
     gap: 20px;
 }
 
@@ -64,3 +84,45 @@ hr {
     width: 100px;
 }
 
+.radio-btn {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+#price {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.sidebar {
+    margin-top: 20px;
+    width: 280px;
+    height: 100%;
+    margin-left: 20px;
+}
+
+.below-header {
+    display: flex;
+    flex-direction: row;
+
+}
+
+#contact {
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+
+}
+
+.homepage-bottom {
+    background-color: #99775C;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

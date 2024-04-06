@@ -131,8 +131,8 @@
 
 }
 
-.btn-sign {
-    margin-top: 10px;
+.btn-sign, .btn-success {
+    margin-top: 20px;
     padding: 10px 20px;
     border-radius: 15px;
     text-align: center;
@@ -143,6 +143,19 @@
 }
 
 .btn-sign:hover {
-    background-color: lightblue;
+    background-color: #4c84ff;
+    color: white;
 }
 
+.btn-success:hover {
+    background-color: #4c84ff;
+    color: white;
+}
+
+.bottom-btn {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

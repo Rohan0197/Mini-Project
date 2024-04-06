@@ -41,7 +41,7 @@ function MyCart(props) {
     }
 
     return (
-        <div>
+        <div className="my-cart">
             <div className="cart-header">Your Cart</div>
             <hr/>
             <div className="attributes">
