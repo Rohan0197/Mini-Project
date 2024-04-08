@@ -57,17 +57,17 @@ function Item(props) {
         }
         setAdd(true);
     }
-
+    console.log(props.image);
     return (
         <div className="item_box">
             <div className="elements">
                 <img src={props.image} alt="item" id="item_img"/>
             </div>
             <div className="elements">
-                Name: {props.name}
+                {props.name}
             </div>
             <div className="elements">
-                Cost: {props.cost}
+                ₹{props.cost}.00
             </div>
             <div className="elements">
                 <button onClick={handleAddToCart} id="add">Add</button>

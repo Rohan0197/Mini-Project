@@ -20,26 +20,21 @@ switch ($method) {
         $orderpostdata = json_decode(file_get_contents("php://input"));
 
         if (isset($orderpostdata->action) && $orderpostdata->action === "placeOrder") {
-            // If place order request
             $username = $orderpostdata->username;
-            $total_cost = $orderpostdata->total_cost; // Retrieve total_cost from the order data
+            $total_cost = $orderpostdata->total_cost; 
             $cartItems = $orderpostdata->cartItems;
 
             $randomNumber = rand(1000, 9999);
             $orderNumber = 'ORDER_' . $randomNumber;
 
-            // Insert the order into the database
             $result = mysqli_query($db_conn, "INSERT INTO orders (order_number, username, total_amount) VALUES ('$orderNumber','$username', '$total_cost')");
 
             if ($result) {
-                // Insert order items into the database
                 foreach ($cartItems as $item) {
                     if (isset($item->product_id) && isset($item->quantity)) {
                         $productId = $item->product_id;
                         $quantity = $item->quantity;
-                        $cost = $item->cost;
-                        $amount = $cost*$quantity;
-                        // Assuming you have a table named order_items with columns order_number, product_id, and quantity
+                        $amount = $item->cost;
                         $result = mysqli_query($db_conn, "INSERT INTO order_items (order_number, product_id, quantity,amount) VALUES ('$orderNumber', '$productId', '$quantity','$amount')");
                         if (!$result) {
                             echo json_encode(["error" => "Failed to add order items. Please check the cart data."]);

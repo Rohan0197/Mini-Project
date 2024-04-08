@@ -20,7 +20,6 @@ switch ($method) {
         $userpostdata = json_decode(file_get_contents("php://input"));
 
         if (isset($userpostdata->req) && $userpostdata->req === true) {
-            // If login request
             $username = $userpostdata->username;
             $password = $userpostdata->password;
             $result = mysqli_query($db_conn, "SELECT * FROM user_info WHERE username='$username' AND password='$password'");

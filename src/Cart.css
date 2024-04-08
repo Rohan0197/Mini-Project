@@ -9,6 +9,28 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+.corner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#home {
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    margin-top: 0;
+    border: 3px solid black;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #EAE7DD;
+    color: #99775C;
+
+}
+
 .attributes {
 
     margin-left: 40px;
@@ -96,7 +118,7 @@
     margin: 20px;
 }
 
-#proceed {
+#proceed, #back {
     width: 120px;
     height: 50px;
     border-radius: 10px;
@@ -105,6 +127,10 @@
 }
 
 #proceed:hover {
+    background-color: lightgreen;
+}
+
+#back:hover {
     background-color: lightgreen;
 }
 

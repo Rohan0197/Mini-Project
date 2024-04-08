@@ -89,7 +89,7 @@ function MyCart(props) {
     return (
         <div className="my-cart">
             <div className="cart-header">Your Cart</div>
-            <hr/>
+            <hr />
             <div className="attributes">
                 <label>Product</label>
                 <label>Title</label>
@@ -97,32 +97,32 @@ function MyCart(props) {
                 <label>Quantity</label>
                 <label>Remove</label>
             </div>
-            <hr/>
+            <hr />
 
             {cartItems.map((item, index) => (
                 <div key={index} className="cart_items">
-                    <img src={item.image} alt="item" className="cart_item_image"/>
+                    <img src={item.image} alt="item" className="cart_item_image" />
                     <label className="individual">{item.name}</label>
                     <label className="individual">{item.cost}</label>
                     <label className="individual" id="quantity-vary">
                         <button onClick={() => decrementQuantity(index)} className="cart-buttons"><img src='sub.png'
                             className="add-sub-img"
-                            alt="delete"/>
+                            alt="delete" />
                         </button>
                         <label>{item.quantity}</label>
                         <button onClick={() => incrementQuantity(index)} className="cart-buttons"><img src='add.png'
                             className="add-sub-img"
-                            alt="add"/>
+                            alt="add" />
                         </button>
                     </label>
                     <button className='delete-btn' onClick={() => deletion(item.name)}>
-                        <img src='delete.png' className="delete-btn-img" alt="delete"/>
+                        <img src='delete.png' className="delete-btn-img" alt="delete" />
                     </button>
                 </div>
             ))}
             <>
                 {
-                    cartItems.length === 0 ? null : (<hr/>)
+                    cartItems.length === 0 ? null : (<hr />)
                 }
             </>
             <>
@@ -140,7 +140,7 @@ function MyCart(props) {
                         </div>)
                 }
             </>
-            <div>
+            <div className="final-cost">
                 <button onClick={() => navigate('/home')} id="back">Continue Shopping</button>
             </div>
         </div>
