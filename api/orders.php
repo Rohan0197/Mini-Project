@@ -10,24 +10,25 @@ header('Content-Type: application/json');
 $db_conn = mysqli_connect("localhost", "root", "", "mini_project");
 
 if ($db_conn === false) {
-    die(json_encode(["error" => "ERROR: Could Not Connect " . mysqli_connect_error()]));
+    echo json_encode(["error" => "ERROR: Could Not Connect " . mysqli_connect_error()]);
+    exit;
 }
 
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case "POST":
-        $orderpostdata = json_decode(file_get_contents("php://input"));
+        $requestBody = json_decode(file_get_contents("php://input"));
 
-        if (isset($orderpostdata->action) && $orderpostdata->action === "placeOrder") {
-            $username = $orderpostdata->username;
-            $total_cost = $orderpostdata->total_cost; 
-            $cartItems = $orderpostdata->cartItems;
+        if (isset($requestBody->action) && $requestBody->action === "placeOrder") {
+            $username = $requestBody->username;
+            $total_cost = $requestBody->total_cost;
+            $cartItems = $requestBody->cartItems;
 
-            $randomNumber = rand(1000, 9999);
-            $orderNumber = 'ORDER_' . $randomNumber;
+            $orderNumber = 'ORDER_' . rand(1000, 9999);
 
-            $result = mysqli_query($db_conn, "INSERT INTO orders (order_number, username, total_amount) VALUES ('$orderNumber','$username', '$total_cost')");
+            $orderQuery = "INSERT INTO orders (order_number, username, total_amount) VALUES ('$orderNumber','$username', '$total_cost')";
+            $result = mysqli_query($db_conn, $orderQuery);
 
             if ($result) {
                 foreach ($cartItems as $item) {
@@ -35,7 +36,8 @@ switch ($method) {
                         $productId = $item->product_id;
                         $quantity = $item->quantity;
                         $amount = $item->cost;
-                        $result = mysqli_query($db_conn, "INSERT INTO order_items (order_number, product_id, quantity,amount) VALUES ('$orderNumber', '$productId', '$quantity','$amount')");
+                        $orderItemsQuery = "INSERT INTO order_items (order_number, product_id, quantity, amount) VALUES ('$orderNumber', '$productId', '$quantity','$amount')";
+                        $result = mysqli_query($db_conn, $orderItemsQuery);
                         if (!$result) {
                             echo json_encode(["error" => "Failed to add order items. Please check the cart data."]);
                             exit;
@@ -54,8 +56,26 @@ switch ($method) {
             echo json_encode(["error" => "Invalid action or action not specified"]);
         }
         break;
-    default:
-        echo json_encode(["error" => "Unsupported request method"]);
-        break;
-}
-?>
+        case "GET":
+            $username = $_GET['username'];
+            $result = mysqli_query($db_conn, "SELECT * FROM orders WHERE username='$username'");
+            
+            if ($result === false) {
+                echo json_encode(["error" => "Error executing query: " . mysqli_error($db_conn)]);
+                exit;
+            }
+    
+            $orders = [];
+    
+            while ($row = mysqli_fetch_assoc($result)) {
+                $orders[] = $row;
+            }
+    
+            echo json_encode($orders);
+            break;
+        
+        default:
+            echo json_encode(["error" => "Unsupported request method"]);
+            break;
+    }
+    ?>

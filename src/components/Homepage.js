@@ -53,6 +53,10 @@ function Homepage(props) {
         navigate('/login');
     }
 
+    function handleMyOrders() {
+        navigate(`/orders/${username}`); 
+    }
+
     return (
         <div className="main-container">
             <div className="footer">
@@ -64,6 +68,9 @@ function Homepage(props) {
                 <div className="corner">
                     <div className="corner_items">
                         <button onClick={handleLogout} id='logout'>LogOut</button>
+                    </div>
+                    <div className="corner_items">
+                        <button onClick={handleMyOrders} id='order'>My Orders</button>
                     </div>
                     <div className="corner_items">
                         <button onClick={() => navigate('/cart')} id="cart">My Cart</button>

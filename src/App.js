@@ -7,6 +7,8 @@ import Homepage from "./components/Homepage";
 import Login from "./components/Login";
 import SignIn from "./components/SignIn";
 import MyCart from "./components/MyCart";
+import Orders from "./components/Orders";
+
 import {useState} from "react";
 
 function App() {
@@ -26,6 +28,7 @@ function App() {
                     <Route path='/home' element={<Homepage addToCart={addToCart} cartItems={cartItems}
                                                            setCartItems={setCartItems}/>}/>
                     <Route path='/cart' element={<MyCart cartItems={cartItems} setCartItems={setCartItems}/>}/>
+                    <Route path="/orders/:username" element={<Orders />} />
                 </Routes>
             </nav>
 

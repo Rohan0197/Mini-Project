@@ -28,7 +28,7 @@
 
 }
 
-#logout, #cart {
+#logout, #cart, #order {
     padding: 10px 10px 10px 10px;
     text-align: center;
     margin-top: 0;
@@ -43,6 +43,12 @@
 }
 
 #logout:hover {
+    background-color: #99775C;
+    color: #F2F7F2;
+    transition: 0.2s;
+}
+
+#order:hover {
     background-color: #99775C;
     color: #F2F7F2;
     transition: 0.2s;
