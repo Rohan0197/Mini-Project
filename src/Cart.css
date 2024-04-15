@@ -33,6 +33,18 @@
     color: #99775C;
 }
 
+.attributes_2 {
+
+    margin-left: 40px;
+    margin-right: 20px;
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr 0.6fr 0.4fr;
+    gap: 100px;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
 .attributes {
 
     margin-left: 40px;
@@ -45,6 +57,18 @@
     font-size: 20px;
 
 
+}
+#line{
+    border-width: 1px;
+}
+
+.cart_items_2 {
+    margin-left: 40px;
+    margin-right: 20px;
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 1fr 1fr ;
+    gap: 75px;
+    align-items: center;
 }
 
 .cart_items {

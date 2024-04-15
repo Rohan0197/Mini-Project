@@ -1,5 +1,7 @@
 .main-container {
     background-color: #EAE7DD;
+    min-height: 100vh;
+    overflow: auto; 
 }
 
 .footer {
@@ -124,11 +126,3 @@ hr {
 
 }
 
-.homepage-bottom {
-    background-color: #99775C;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}

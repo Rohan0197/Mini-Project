@@ -73,9 +73,8 @@ function MyCart(props) {
             .then(response => {
                 console.log(response.data);
                 if (response.data.success) {
-                    alert("Success");
+                    alert("Order Placed");
                     setCartItems([]);
-                    //navigate('/');
                 } else {
                     alert("Failed to place order");
                 }
@@ -138,7 +137,7 @@ function MyCart(props) {
                                 <label className="total-cost">Total Cost: {total_cost} ({total_quantity} items)</label>
                             </div>
                             <div>
-                                <button onClick={placeOrder} id="proceed">Proceed to Pay</button>
+                                <button onClick={placeOrder} id="proceed">Proceed</button>
                             </div>
 
 

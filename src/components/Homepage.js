@@ -9,6 +9,7 @@ function Homepage(props) {
     const [search, setSearch] = useState('');
     const [username, setUsername] = useState('');
     const [filter, setFilter] = useState(null);
+
     useEffect(() => {
         const storedUsername = localStorage.getItem('username');
         setUsername(storedUsername);
@@ -127,14 +128,7 @@ function Homepage(props) {
                     ))}
                 </div>
             </div>
-            <div className="homepage-bottom">
-                <div>
-                    <label id="contact">Contact Us</label>
-                </div>
-                <div>
-                    <a href="https://www.amazon.in" target="_blank">Instagram</a>
-                </div>
-            </div>
+            
         </div>
     );
 }
